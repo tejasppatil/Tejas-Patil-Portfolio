@@ -127,6 +127,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#personal-projects">Lab</a></li>
     <li><a href="#resume">Resume</a></li>
     <li><a href="#certifications">Certifications</a></li>
     <li><a href="#socials">Socials</a></li>
@@ -271,6 +272,164 @@
       </div></div>
   </div>
 </section>
+
+<div class="section-divider"></div>
+
+<!-- ===================== PERSONAL PROJECTS ===================== -->
+<section id="personal-projects">
+  <div class="section-wrap">
+    <p class="section-label">Lab</p>
+    <h2 class="section-title">Personal Projects</h2>
+    <p class="proj-subtitle">Side Projects &amp; Experiments</p>
+    <div class="proj-list">
+
+      <div class="proj-card">
+        <div class="proj-meta">
+          <div class="proj-logo-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#EEF0FF"/>
+              <path d="M16 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6z" fill="#3D3DC4"/>
+              <path d="M9 25c0-3.866 3.134-7 7-7s7 3.134 7 7" stroke="#3D3DC4" stroke-width="1.8" stroke-linecap="round"/>
+              <path d="M10 21l-3 2M22 21l3 2" stroke="#3D3DC4" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="7" cy="23" r="1.5" fill="#3D3DC4"/>
+              <circle cx="25" cy="23" r="1.5" fill="#3D3DC4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="proj-id">PP:01</p>
+            <p class="proj-company">Personal / ML</p>
+          </div>
+        </div>
+
+        <h3 class="proj-name">Weather Temperature Predictor</h3>
+        <p class="proj-desc">Built a polynomial regression model in Python to predict temperature from four atmospheric inputs — Humidity, Wind Speed, Pressure, and Rainfall. Trained with scikit-learn, serialised as a pickle, and served via a Flask API. Try it live below.</p>
+
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Polynomial Regression</span>
+          <span class="tag">ML</span>
+        </div>
+
+        <!-- ── Live Weather Widget ── -->
+        <div id="weather-widget" style="
+          margin-top: 32px;
+          background-color: #4682b4;
+          border-radius: 10px;
+          padding: 28px 32px;
+          max-width: 480px;
+          font-family: Calibri, sans-serif;
+        ">
+          <p style="color:#fff;font-size:1.05rem;font-weight:600;margin:0 0 18px 0;text-align:center;">
+            Live Prediction Demo
+          </p>
+
+          <div style="background:burlywood;border-radius:8px;padding:20px 24px;">
+
+            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:2px;font-size:0.9rem;">Humidity (%)</label>
+            <input id="w-humidity" type="number" step="any" placeholder="e.g. 72" style="
+              width:100%;box-sizing:border-box;padding:8px 10px;margin-bottom:12px;
+              border-radius:4px;border:1px solid #9b7040;font-family:Calibri,sans-serif;font-size:0.95rem;">
+
+            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:2px;font-size:0.9rem;">Wind Speed (km/h)</label>
+            <input id="w-wind" type="number" step="any" placeholder="e.g. 15" style="
+              width:100%;box-sizing:border-box;padding:8px 10px;margin-bottom:12px;
+              border-radius:4px;border:1px solid #9b7040;font-family:Calibri,sans-serif;font-size:0.95rem;">
+
+            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:2px;font-size:0.9rem;">Pressure (hPa)</label>
+            <input id="w-pressure" type="number" step="any" placeholder="e.g. 1013" style="
+              width:100%;box-sizing:border-box;padding:8px 10px;margin-bottom:12px;
+              border-radius:4px;border:1px solid #9b7040;font-family:Calibri,sans-serif;font-size:0.95rem;">
+
+            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:2px;font-size:0.9rem;">Rainfall (mm)</label>
+            <input id="w-rainfall" type="number" step="any" placeholder="e.g. 0" style="
+              width:100%;box-sizing:border-box;padding:8px 10px;margin-bottom:16px;
+              border-radius:4px;border:1px solid #9b7040;font-family:Calibri,sans-serif;font-size:0.95rem;">
+
+            <button onclick="predictWeather()" style="
+              background-color:brown;color:yellowgreen;border:none;cursor:pointer;
+              padding:10px 28px;border-radius:4px;font-size:1rem;font-family:Calibri,sans-serif;
+              width:100%;transition:background 0.2s;">
+              Predict Temperature
+            </button>
+
+            <div id="weather-result" style="display:none;margin-top:16px;text-align:center;
+              font-size:1.2rem;font-weight:bold;color:#3b1a00;">
+            </div>
+
+            <div id="weather-error" style="display:none;margin-top:14px;text-align:center;
+              font-size:0.88rem;color:#8b0000;">
+            </div>
+
+          </div><!-- /burlywood card -->
+        </div><!-- /weather-widget -->
+
+        <div style="margin-top:14px;">
+          <a href="https://github.com/tejasppatil/weather-temperature-predictor"
+             target="_blank" rel="noopener"
+             style="font-size:0.8rem;color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(61,61,196,0.3);transition:border-color 0.2s;">
+            View on GitHub →
+          </a>
+        </div>
+
+      </div><!-- /proj-card -->
+    </div><!-- /proj-list -->
+  </div>
+</section>
+
+<script>
+  async function predictWeather() {
+    const humidity   = document.getElementById('w-humidity').value;
+    const wind       = document.getElementById('w-wind').value;
+    const pressure   = document.getElementById('w-pressure').value;
+    const rainfall   = document.getElementById('w-rainfall').value;
+    const resultBox  = document.getElementById('weather-result');
+    const errorBox   = document.getElementById('weather-error');
+
+    resultBox.style.display = 'none';
+    errorBox.style.display  = 'none';
+
+    if (!humidity || !wind || !pressure || !rainfall) {
+      errorBox.textContent = 'Please fill in all four fields.';
+      errorBox.style.display = 'block';
+      return;
+    }
+
+    // ── Replace this URL with your Render deployment URL once live ──
+    const API_URL = 'https://weather-temperature-predictor.onrender.com/predict';
+    try {
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          Humidity:   parseFloat(humidity),
+          Wind_Speed: parseFloat(wind),
+          Pressure:   parseFloat(pressure),
+          Rainfall:   parseFloat(rainfall)
+        })
+      });
+
+      if (!response.ok) throw new Error('API error ' + response.status);
+
+      const data = await response.json();
+      resultBox.textContent   = 'Predicted Temperature: ' + data.temperature + ' °C';
+      resultBox.style.display = 'block';
+
+    } catch (err) {
+      errorBox.textContent = 'Could not reach the prediction API. Make sure your Render service is running.';
+      errorBox.style.display = 'block';
+    }
+  }
+
+  // Make the predict button turn crimson on hover (matches your project style)
+  document.querySelector('#weather-widget button').addEventListener('mouseover', function() {
+    this.style.backgroundColor = 'crimson';
+  });
+  document.querySelector('#weather-widget button').addEventListener('mouseout', function() {
+    this.style.backgroundColor = 'brown';
+  });
+</script>
 
 <div class="section-divider"></div>
 
