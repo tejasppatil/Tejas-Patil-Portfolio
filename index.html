@@ -400,10 +400,231 @@
           </a>
         </div>
 
-      </div><!-- /proj-card -->
+      </div><!-- /proj-card weather -->
+
+      <!-- ── Polynomial Regression Card ── -->
+      <div class="proj-card">
+        <div class="proj-meta">
+          <div class="proj-logo-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#EEF0FF"/>
+              <polyline points="4,26 10,16 16,20 22,8 28,12" stroke="#3D3DC4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <circle cx="4"  cy="26" r="2" fill="#3D3DC4"/>
+              <circle cx="10" cy="16" r="2" fill="#3D3DC4"/>
+              <circle cx="16" cy="20" r="2" fill="#3D3DC4"/>
+              <circle cx="22" cy="8"  r="2" fill="#3D3DC4"/>
+              <circle cx="28" cy="12" r="2" fill="#3D3DC4"/>
+            </svg>
+          </div>
+          <div>
+            <p class="proj-id">PP:02</p>
+            <p class="proj-company">Personal / ML</p>
+          </div>
+        </div>
+
+        <h3 class="proj-name">Polynomial Regression Explorer</h3>
+        <p class="proj-desc">An interactive supervised learning demo that fits a polynomial regression curve to a synthetically generated dataset. Enter any degree from 1 to 10 and watch the curve update live — a great visual for understanding underfitting (degree 1) versus overfitting (degree 9+). Built with Python, scikit-learn, and Flask, rendered in the browser via Chart.js.</p>
+
+        <!-- Project breakdown -->
+        <div style="margin: 20px 0 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 620px;">
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Problem Type</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Supervised Learning<br>Regression</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Algorithm</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Polynomial Regression<br>(user-defined degree)</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Dataset</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Synthetic — 200 points<br>0.8x² + 0.9x + 2 + noise</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Key Concept</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Bias–Variance tradeoff<br>Underfit vs Overfit</p>
+          </div>
+
+        </div>
+
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Flask</span>
+          <span class="tag">Polynomial Regression</span>
+          <span class="tag">Supervised ML</span>
+          <span class="tag">Chart.js</span>
+          <span class="tag">REST API</span>
+        </div>
+
+        <!-- ── Live Polynomial Widget ── -->
+        <div id="poly-widget" style="
+          margin-top: 32px;
+          background-color: #4682b4;
+          border-radius: 10px;
+          padding: 28px 32px;
+          max-width: 560px;
+          font-family: Calibri, sans-serif;
+        ">
+          <p style="color:#fff;font-size:1.05rem;font-weight:600;margin:0 0 18px 0;text-align:center;">
+            Live Regression Explorer
+          </p>
+
+          <div style="background:burlywood;border-radius:8px;padding:20px 24px;">
+
+            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:4px;font-size:0.9rem;">
+              Polynomial Degree (1 – 10)
+            </label>
+            <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
+              <input id="p-degree" type="number" min="1" max="10" value="6"
+                style="flex:1;padding:9px 12px;border-radius:4px;border:1px solid #9b7040;
+                       font-family:Calibri,sans-serif;font-size:1rem;box-sizing:border-box;">
+              <button onclick="plotPolynomial()" style="
+                background-color:brown;color:yellowgreen;border:none;cursor:pointer;
+                padding:10px 24px;border-radius:4px;font-size:1rem;font-family:Calibri,sans-serif;
+                white-space:nowrap;transition:background 0.2s;"
+                onmouseover="this.style.backgroundColor='crimson'"
+                onmouseout="this.style.backgroundColor='brown'">
+                Plot
+              </button>
+            </div>
+            <p style="font-size:0.8rem;color:#5a3200;margin:0 0 16px 0;">
+              Try degree 1 (underfit) → 2 (good fit) → 9 (overfit)
+            </p>
+
+            <!-- Chart canvas -->
+            <canvas id="portfolio-poly-chart" height="260"
+              style="background:white;border-radius:6px;width:100%;"></canvas>
+
+            <div id="poly-badge" style="display:none;text-align:center;margin-top:12px;">
+              <span style="background:brown;color:yellowgreen;font-size:0.85rem;font-weight:bold;
+                           padding:4px 16px;border-radius:20px;" id="poly-badge-text">Degree 2</span>
+            </div>
+
+            <div id="poly-error" style="display:none;margin-top:12px;text-align:center;
+              font-size:0.88rem;color:#8b0000;"></div>
+
+          </div>
+        </div><!-- /poly-widget -->
+
+        <div style="margin-top:14px;">
+          <a href="https://github.com/tejasppatil/polynomial-regression-explorer"
+             target="_blank" rel="noopener"
+             style="font-size:0.8rem;color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(61,61,196,0.3);transition:border-color 0.2s;">
+            View on GitHub →
+          </a>
+        </div>
+
+      </div><!-- /proj-card poly -->
+
     </div><!-- /proj-list -->
   </div>
 </section>
+
+<!-- Chart.js for polynomial widget -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<script>
+  // ── Replace with your Render URL once deployed ──
+  const POLY_API_URL = 'https://polynomial-regression-explorer.onrender.com';
+
+  let polyChart = null;
+
+  async function plotPolynomial() {
+    const degree   = parseInt(document.getElementById('p-degree').value);
+    const errorDiv = document.getElementById('poly-error');
+    errorDiv.style.display = 'none';
+
+    if (!degree || degree < 1 || degree > 10) {
+      errorDiv.textContent = 'Please enter a degree between 1 and 10.';
+      errorDiv.style.display = 'block';
+      return;
+    }
+
+    try {
+      const res = await fetch(POLY_API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ degree: degree })
+      });
+      if (!res.ok) throw new Error('API error');
+      const data = await res.json();
+      renderPolyChart(data);
+    } catch (err) {
+      errorDiv.textContent = 'Could not reach the polynomial API. Make sure your Render service is running.';
+      errorDiv.style.display = 'block';
+    }
+  }
+
+  function renderPolyChart(data) {
+    document.getElementById('poly-badge-text').textContent = `Degree ${data.degree}`;
+    document.getElementById('poly-badge').style.display = 'block';
+
+    const scatterPts = data.scatter_x.map((x, i) => ({
+      x: +x.toFixed(3), y: +data.scatter_y[i].toFixed(3)
+    }));
+    const curvePts = data.curve_x.map((x, i) => ({
+      x: +x.toFixed(3), y: +data.curve_y[i].toFixed(3)
+    }));
+
+    if (polyChart) polyChart.destroy();
+
+    const ctx = document.getElementById('portfolio-poly-chart').getContext('2d');
+    polyChart = new Chart(ctx, {
+      type: 'scatter',
+      data: {
+        datasets: [
+          {
+            label: 'Data',
+            data: scatterPts,
+            backgroundColor: 'rgba(70,130,180,0.65)',
+            pointRadius: 3,
+            order: 2
+          },
+          {
+            label: `Poly Degree ${data.degree}`,
+            data: curvePts,
+            type: 'line',
+            borderColor: 'crimson',
+            borderWidth: 2.5,
+            pointRadius: 0,
+            fill: false,
+            tension: 0.4,
+            order: 1
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { labels: { font: { family: 'Calibri', size: 12 } } },
+          title: {
+            display: true,
+            text: `Polynomial Regression — Degree ${data.degree}`,
+            font: { family: 'Calibri', size: 13, weight: 'bold' },
+            color: '#3b1a00'
+          }
+        },
+        scales: {
+          x: {
+            title: { display: true, text: 'X', font: { family: 'Calibri', size: 12 } },
+            grid: { color: 'rgba(0,0,0,0.07)' }
+          },
+          y: {
+            title: { display: true, text: 'y', font: { family: 'Calibri', size: 12 } },
+            grid: { color: 'rgba(0,0,0,0.07)' }
+          }
+        }
+      }
+    });
+  }
+
+  // Auto-plot degree 6 on page load
+  window.addEventListener('load', plotPolynomial);
+</script>
 
 <script>
   async function predictWeather() {
@@ -424,7 +645,7 @@
     }
 
     // ── Replace this URL with your Render deployment URL once live ──
-    const API_URL = 'https://YOUR-APP-NAME.onrender.com/predict';
+    const API_URL = 'https://weather-temperature-predictor.onrender.com/';
 
     try {
       const response = await fetch(API_URL, {
