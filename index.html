@@ -149,7 +149,7 @@
           <path d="M24 22h4v2s1-2 4-2c3 0 4 2 4 5v7h-4v-6c0-1.5-0.5-2.5-2-2.5s-2 1-2 2.5v6h-4z" fill="white"/>
         </svg>
       </a>
-      <a href="mailto:tejas.p29@gmail.com" class="contact-icon" title="Email">
+      <a href="/cdn-cgi/l/email-protection#681c0d02091b46185a51280f05090104460b0705" class="contact-icon" title="Email">
         <svg width="22" height="22" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
           <circle cx="26" cy="26" r="26" fill="#3D3DC4"/>
           <rect x="13" y="18" width="26" height="17" rx="2" fill="none" stroke="white" stroke-width="2"/>
@@ -173,7 +173,7 @@
       <p>I've spent more than a decade building thoughtful, reliable, and scalable software across a variety of companies.</p>
       <p>I genuinely love building products — not just shipping features, but solving problems that actually matter to people. I've learned that the best products come from really understanding the problem, not just executing on a spec.</p>
       <p>I'm a self-starter who's comfortable with ambiguity, works well with engineers and designers, and isn't afraid to push back when something doesn't feel right. Lately, I've been going deep on Generative AI and LLMs — genuinely excited about where it's all heading and how it changes what's possible in product.</p>
-      <p>I'm actively looking for new opportunities to have a meaningful impact on the world. If you'd like to collaborate, email me at <a href="mailto:tejas.p29@gmail.com">tejas.p29@gmail.com</a>.</p>
+      <p>I'm actively looking for new opportunities to have a meaningful impact on the world. If you'd like to collaborate, email me at <a href="/cdn-cgi/l/email-protection#9eeafbf4ffedb0eeaca7def9f3fff7f2b0fdf1f3"><span class="__cf_email__" data-cfemail="4236272823316c32707b02252f232b2e6c212d2f">[email&#160;protected]</span></a>.</p>
     </div>
   </div>
 </section>
@@ -463,49 +463,51 @@
         <!-- ── Live Polynomial Widget ── -->
         <div id="poly-widget" style="
           margin-top: 32px;
-          background-color: #4682b4;
-          border-radius: 10px;
-          padding: 28px 32px;
+          background: #fff;
+          border: 1px solid rgba(0,0,0,0.08);
+          border-radius: 8px;
+          padding: 0;
           max-width: 560px;
-          font-family: Calibri, sans-serif;
+          overflow: hidden;
+          box-shadow: 0 2px 16px rgba(0,0,0,0.06);
         ">
-          <p style="color:#fff;font-size:1.05rem;font-weight:600;margin:0 0 18px 0;text-align:center;">
-            Live Regression Explorer
-          </p>
 
-          <div style="background:burlywood;border-radius:8px;padding:20px 24px;">
+          <!-- Widget header -->
+          <div style="background: var(--light-gray); padding: 14px 22px; border-bottom: 1px solid rgba(0,0,0,0.07); display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--purple);">Live Regression Explorer</span>
+            <span id="poly-badge" style="display:none;font-size:0.7rem;font-weight:500;letter-spacing:0.06em;background:var(--purple);color:#fff;padding:3px 10px;border-radius:20px;" id="poly-badge-text"></span>
+          </div>
 
-            <label style="display:block;font-weight:bold;color:#3b1a00;margin-bottom:4px;font-size:0.9rem;">
-              Polynomial Degree (1 – 10)
+          <div style="padding:20px 22px;">
+
+            <label style="display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--gray);margin-bottom:8px;">
+              Enter a Polynomial Degree (1 – 10)
             </label>
             <div style="display:flex;gap:10px;align-items:center;margin-bottom:8px;">
               <input id="p-degree" type="number" min="1" max="10" value="6"
-                style="flex:1;padding:9px 12px;border-radius:4px;border:1px solid #9b7040;
-                       font-family:Calibri,sans-serif;font-size:1rem;box-sizing:border-box;">
+                style="flex:1;padding:9px 12px;border-radius:4px;border:1px solid rgba(0,0,0,0.15);
+                       font-family:'DM Sans',sans-serif;font-size:0.95rem;box-sizing:border-box;
+                       color:var(--black);outline:none;transition:border-color 0.2s;"
+                onfocus="this.style.borderColor='var(--purple)'" onblur="this.style.borderColor='rgba(0,0,0,0.15)'">
               <button onclick="plotPolynomial()" style="
-                background-color:brown;color:yellowgreen;border:none;cursor:pointer;
-                padding:10px 24px;border-radius:4px;font-size:1rem;font-family:Calibri,sans-serif;
+                background:var(--purple);color:#fff;border:none;cursor:pointer;
+                padding:10px 22px;border-radius:4px;font-size:0.82rem;font-weight:500;
+                font-family:'DM Sans',sans-serif;letter-spacing:0.04em;
                 white-space:nowrap;transition:background 0.2s;"
-                onmouseover="this.style.backgroundColor='crimson'"
-                onmouseout="this.style.backgroundColor='brown'">
+                onmouseover="this.style.background='#2a2aa0'"
+                onmouseout="this.style.background='var(--purple)'">
                 Plot
               </button>
             </div>
-            <p style="font-size:0.8rem;color:#5a3200;margin:0 0 16px 0;">
-              Try degree 1 (underfit) → 2 (good fit) → 9 (overfit)
+            <p style="font-size:0.78rem;color:var(--mid-gray);margin:0 0 16px 0;line-height:1.5;">
+              Enter any whole number from 1 to 10 — try 1 (underfit), 2 (good fit), or 9 (overfit)
             </p>
 
-            <!-- Chart canvas -->
             <canvas id="portfolio-poly-chart" height="260"
-              style="background:white;border-radius:6px;width:100%;"></canvas>
+              style="background:#fafaf8;border:1px solid rgba(0,0,0,0.07);border-radius:4px;width:100%;"></canvas>
 
-            <div id="poly-badge" style="display:none;text-align:center;margin-top:12px;">
-              <span style="background:brown;color:yellowgreen;font-size:0.85rem;font-weight:bold;
-                           padding:4px 16px;border-radius:20px;" id="poly-badge-text">Degree 2</span>
-            </div>
-
-            <div id="poly-error" style="display:none;margin-top:12px;text-align:center;
-              font-size:0.88rem;color:#8b0000;"></div>
+            <div id="poly-error" style="display:none;margin-top:12px;
+              font-size:0.82rem;color:#c0392b;"></div>
 
           </div>
         </div><!-- /poly-widget -->
@@ -520,12 +522,284 @@
 
       </div><!-- /proj-card poly -->
 
+
+      <!-- ── Titanic Survival Classifier Card ── -->
+      <div class="proj-card">
+        <div class="proj-meta">
+          <div class="proj-logo-wrap">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="6" fill="#EEF0FF"/>
+              <path d="M5 21 Q16 17 27 21 L25 25 Q16 28 7 25 Z" fill="#3D3DC4"/>
+              <rect x="13" y="11" width="3" height="8" rx="1" fill="#3D3DC4"/>
+              <rect x="17" y="13" width="2.5" height="6" rx="1" fill="#3D3DC4"/>
+              <circle cx="14.5" cy="10" r="1.5" fill="#3D3DC4" opacity="0.5"/>
+              <circle cx="18" cy="12" r="1" fill="#3D3DC4" opacity="0.4"/>
+              <path d="M4 23 Q10 21 16 23 Q22 25 28 23" stroke="#3D3DC4" stroke-width="1.2" fill="none" opacity="0.6"/>
+            </svg>
+          </div>
+          <div>
+            <p class="proj-id">PP:03</p>
+            <p class="proj-company">Personal / ML</p>
+          </div>
+        </div>
+
+        <h3 class="proj-name">Titanic Survival Classifier — Binary Classification</h3>
+        <p class="proj-desc">An interactive supervised learning demo that predicts whether a Titanic passenger would have survived, based on their profile. Enter passenger details — gender, age, class, fare, port, and family size — and a logistic regression classifier trained on the 891-passenger RMS Titanic dataset returns a survival prediction with probability score and factor-by-factor breakdown. A hands-on illustration of binary classification, feature engineering, and the sigmoid function.</p>
+
+        <!-- Project breakdown -->
+        <div style="margin: 20px 0 20px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; max-width: 620px;">
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Problem Type</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Supervised Learning<br>Binary Classification</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Algorithm</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">Logistic Regression<br>σ(z) = 1 / (1 + e⁻ᶻ)</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Dataset</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.5;">RMS Titanic — 891 passengers<br>38.4% survival rate</p>
+          </div>
+
+          <div style="background: var(--light-gray); border-radius: 6px; padding: 14px 16px;">
+            <p style="font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--purple);margin:0 0 6px 0;">Features (7)</p>
+            <p style="font-size:0.88rem;color:var(--black);margin:0;line-height:1.6;">Sex · Age · Pclass · Fare<br>SibSp · Parch · Embarked</p>
+          </div>
+
+        </div>
+
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">Logistic Regression</span>
+          <span class="tag">Binary Classification</span>
+          <span class="tag">Supervised ML</span>
+          <span class="tag">Feature Engineering</span>
+          <span class="tag">JavaScript</span>
+        </div>
+
+        <!-- ── Live Titanic Classifier Widget ── -->
+        <div id="titanic-widget" style="
+          margin-top: 32px;
+          background: linear-gradient(135deg, #0d1b2a 0%, #1e3047 100%);
+          border-radius: 10px;
+          padding: 28px 32px;
+          max-width: 600px;
+          font-family: 'DM Sans', sans-serif;
+          border: 1px solid rgba(201,168,76,0.2);
+        ">
+          <p style="color:#e8cc82;font-size:0.72rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;margin:0 0 4px 0;">Live Prediction Demo</p>
+          <p style="color:#f2ede4;font-family:'DM Serif Display',serif;font-size:1.15rem;margin:0 0 22px 0;">Would you have survived the Titanic?</p>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+
+            <!-- Gender -->
+            <div style="grid-column:1/-1;">
+              <label style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:8px;">Gender</label>
+              <div style="display:flex;gap:10px;">
+                <label style="flex:1;display:flex;align-items:center;justify-content:center;gap:7px;background:#162436;border:1px solid rgba(201,168,76,0.25);border-radius:4px;padding:10px;font-size:0.85rem;color:#e0d9cd;cursor:pointer;transition:all 0.2s;" id="lbl-female">
+                  <input type="radio" name="t-sex" value="female" id="t-female" style="display:none;" onchange="titanicUpdateGender()"> ♀ Female
+                </label>
+                <label style="flex:1;display:flex;align-items:center;justify-content:center;gap:7px;background:rgba(201,168,76,0.1);border:1px solid #c9a84c;border-radius:4px;padding:10px;font-size:0.85rem;color:#c9a84c;cursor:pointer;transition:all 0.2s;" id="lbl-male">
+                  <input type="radio" name="t-sex" value="male" id="t-male" checked style="display:none;" onchange="titanicUpdateGender()"> ♂ Male
+                </label>
+              </div>
+            </div>
+
+            <!-- Age -->
+            <div>
+              <label for="t-age" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Age</label>
+              <input id="t-age" type="number" min="0" max="100" value="30" placeholder="e.g. 30" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='rgba(201,168,76,0.25)'">
+            </div>
+
+            <!-- Ticket Class -->
+            <div>
+              <label for="t-pclass" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Ticket Class</label>
+              <div style="position:relative;">
+                <select id="t-pclass" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;appearance:none;outline:none;">
+                  <option value="1">1st Class</option>
+                  <option value="2">2nd Class</option>
+                  <option value="3" selected>3rd Class</option>
+                </select>
+                <span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#c9a84c;pointer-events:none;font-size:0.75rem;">▾</span>
+              </div>
+            </div>
+
+            <!-- Fare -->
+            <div>
+              <label for="t-fare" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Ticket Fare (£)</label>
+              <input id="t-fare" type="number" min="0" step="0.5" value="14.50" placeholder="e.g. 14.50" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='rgba(201,168,76,0.25)'">
+            </div>
+
+            <!-- Port -->
+            <div>
+              <label for="t-embarked" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Embarked From</label>
+              <div style="position:relative;">
+                <select id="t-embarked" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;appearance:none;outline:none;">
+                  <option value="S" selected>Southampton (S)</option>
+                  <option value="C">Cherbourg (C)</option>
+                  <option value="Q">Queenstown (Q)</option>
+                </select>
+                <span style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:#c9a84c;pointer-events:none;font-size:0.75rem;">▾</span>
+              </div>
+            </div>
+
+            <!-- Siblings/Spouses -->
+            <div>
+              <label for="t-sibsp" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Siblings / Spouses</label>
+              <input id="t-sibsp" type="number" min="0" max="10" value="0" placeholder="0" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='rgba(201,168,76,0.25)'">
+            </div>
+
+            <!-- Parents/Children -->
+            <div>
+              <label for="t-parch" style="display:block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin-bottom:6px;">Parents / Children</label>
+              <input id="t-parch" type="number" min="0" max="10" value="0" placeholder="0" style="width:100%;box-sizing:border-box;background:#0d1b2a;border:1px solid rgba(201,168,76,0.25);border-radius:4px;color:#f2ede4;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 12px;outline:none;transition:border-color 0.2s;" onfocus="this.style.borderColor='#c9a84c'" onblur="this.style.borderColor='rgba(201,168,76,0.25)'">
+            </div>
+
+          </div>
+
+          <!-- Predict Button -->
+          <button onclick="titanicPredict()" id="t-btn" style="display:block;width:100%;background:#c9a84c;color:#0d1b2a;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:0.82rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;padding:15px 28px;cursor:pointer;transition:background 0.2s,transform 0.15s;margin-top:4px;">
+            Run Classification →
+          </button>
+
+          <!-- Result -->
+          <div id="t-result" style="display:none;margin-top:20px;border-top:1px solid rgba(201,168,76,0.15);padding-top:18px;">
+
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+              <div id="t-icon" style="width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;"></div>
+              <div>
+                <p style="font-size:0.6rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#a0a8b0;margin:0 0 2px 0;">Prediction</p>
+                <p id="t-verdict" style="font-family:'DM Serif Display',serif;font-size:1.4rem;margin:0;line-height:1.1;"></p>
+              </div>
+            </div>
+
+            <div style="margin-bottom:16px;">
+              <div style="display:flex;justify-content:space-between;margin-bottom:7px;">
+                <span style="font-size:0.6rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#a0a8b0;">Survival Probability</span>
+                <span id="t-pct" style="font-family:'DM Mono',monospace;font-size:0.75rem;font-weight:500;color:#c9a84c;"></span>
+              </div>
+              <div style="height:6px;background:rgba(255,255,255,0.07);border-radius:3px;overflow:hidden;">
+                <div id="t-bar" style="height:100%;border-radius:3px;width:0;transition:width 1s cubic-bezier(0.4,0,0.2,1);"></div>
+              </div>
+            </div>
+
+            <div>
+              <p style="font-size:0.6rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#a0a8b0;margin:0 0 10px 0;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,0.05);">Key Factors</p>
+              <div id="t-factors"></div>
+            </div>
+
+            <div style="margin-top:16px;padding:12px;background:rgba(201,168,76,0.05);border:1px solid rgba(201,168,76,0.12);border-radius:3px;">
+              <p style="font-size:0.58rem;font-family:'DM Sans',sans-serif;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#c9a84c;margin:0 0 3px 0;">Algorithm</p>
+              <p id="t-algo" style="font-size:0.75rem;color:#c0b8ac;margin:0;font-family:'DM Mono',monospace;line-height:1.5;"></p>
+            </div>
+
+          </div>
+        </div><!-- /titanic-widget -->
+
+        <div style="margin-top:14px;">
+          <a href="https://github.com/tejasppatil/titanic-survival-classifier"
+             target="_blank" rel="noopener"
+             style="font-size:0.8rem;color:var(--purple);text-decoration:none;border-bottom:1px solid rgba(61,61,196,0.3);transition:border-color 0.2s;">
+            View on GitHub →
+          </a>
+        </div>
+
+      </div><!-- /proj-card titanic -->
     </div><!-- /proj-list -->
   </div>
 </section>
 
 <!-- Chart.js for polynomial widget -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+<script>
+  // ── Titanic Survival Classifier ──
+  var T_COEF = {
+    intercept: 3.777, pclass: -1.031, sex_male: -2.522, age: -0.037,
+    sibsp: -0.489, parch: -0.121, fare: 0.002, embarked_C: 0.214, embarked_Q: 0.334
+  };
+
+  function titanicSigmoid(z) { return 1 / (1 + Math.exp(-z)); }
+
+  function titanicUpdateGender() {
+    var f = document.getElementById('t-female').checked;
+    document.getElementById('lbl-female').style.background = f ? 'rgba(201,168,76,0.1)' : '#162436';
+    document.getElementById('lbl-female').style.borderColor = f ? '#c9a84c' : 'rgba(201,168,76,0.25)';
+    document.getElementById('lbl-female').style.color = f ? '#c9a84c' : '#e0d9cd';
+    document.getElementById('lbl-male').style.background = f ? '#162436' : 'rgba(201,168,76,0.1)';
+    document.getElementById('lbl-male').style.borderColor = f ? 'rgba(201,168,76,0.25)' : '#c9a84c';
+    document.getElementById('lbl-male').style.color = f ? '#e0d9cd' : '#c9a84c';
+  }
+
+  function titanicPredict() {
+    var btn = document.getElementById('t-btn');
+    btn.textContent = '● ● ●'; btn.style.opacity = '0.7'; btn.disabled = true;
+    setTimeout(function() {
+      btn.textContent = 'Run Classification →'; btn.style.opacity = '1'; btn.disabled = false;
+      titanicRunModel();
+    }, 700);
+  }
+
+  function titanicRunModel() {
+    var sex      = document.getElementById('t-female').checked ? 'female' : 'male';
+    var age      = parseFloat(document.getElementById('t-age').value) || 28;
+    var pclass   = parseInt(document.getElementById('t-pclass').value);
+    var fare     = parseFloat(document.getElementById('t-fare').value) || 14.50;
+    var embarked = document.getElementById('t-embarked').value;
+    var sibsp    = parseInt(document.getElementById('t-sibsp').value) || 0;
+    var parch    = parseInt(document.getElementById('t-parch').value) || 0;
+
+    var z = T_COEF.intercept
+      + T_COEF.pclass   * pclass
+      + T_COEF.sex_male * (sex === 'male' ? 1 : 0)
+      + T_COEF.age      * age
+      + T_COEF.sibsp    * sibsp
+      + T_COEF.parch    * parch
+      + T_COEF.fare     * fare
+      + T_COEF.embarked_C * (embarked === 'C' ? 1 : 0)
+      + T_COEF.embarked_Q * (embarked === 'Q' ? 1 : 0);
+
+    var prob = titanicSigmoid(z);
+    var survived = prob >= 0.5;
+    var pct = Math.round(prob * 100);
+
+    var factors = [
+      { name: 'Gender: ' + (sex === 'female' ? 'Female' : 'Male'), cls: sex === 'female' ? 'pos' : 'neg', label: sex === 'female' ? 'Strongly ↑' : 'Strongly ↓' },
+      { name: 'Class: ' + (pclass === 1 ? '1st' : pclass === 2 ? '2nd' : '3rd') + ' Class', cls: pclass === 1 ? 'pos' : pclass === 2 ? 'neu' : 'neg', label: pclass === 1 ? 'Positive ↑' : pclass === 2 ? 'Neutral' : 'Negative ↓' },
+      { name: 'Age: ' + age + ' years', cls: age < 16 ? 'pos' : age > 50 ? 'neg' : 'neu', label: age < 16 ? 'Positive ↑' : age > 50 ? 'Negative ↓' : 'Neutral' },
+      { name: 'Fare: £' + parseFloat(fare).toFixed(2), cls: fare > 50 ? 'pos' : fare < 15 ? 'neg' : 'neu', label: fare > 50 ? 'Positive ↑' : fare < 15 ? 'Negative ↓' : 'Neutral' },
+      { name: 'Family aboard: ' + (sibsp + parch) + ' member' + ((sibsp + parch) !== 1 ? 's' : ''), cls: (sibsp + parch) === 0 ? 'neu' : (sibsp + parch) > 3 ? 'neg' : 'pos', label: (sibsp + parch) === 0 ? 'Alone' : (sibsp + parch) > 3 ? 'Large group ↓' : 'Small group ↑' },
+      { name: 'Port: ' + (embarked === 'S' ? 'Southampton' : embarked === 'C' ? 'Cherbourg' : 'Queenstown'), cls: embarked === 'C' ? 'pos' : 'neu', label: embarked === 'C' ? 'Slight ↑' : 'Neutral' }
+    ];
+
+    var colors = { pos: { bg: 'rgba(39,174,96,0.15)', color: '#2ecc71' }, neg: { bg: 'rgba(192,57,43,0.15)', color: '#e74c3c' }, neu: { bg: 'rgba(201,168,76,0.1)', color: '#c9a84c' } };
+
+    document.getElementById('t-result').style.display = 'block';
+    var icon = document.getElementById('t-icon');
+    icon.textContent = survived ? '🛟' : '🌊';
+    icon.style.background = survived ? 'rgba(39,174,96,0.15)' : 'rgba(192,57,43,0.15)';
+    var verdict = document.getElementById('t-verdict');
+    verdict.textContent = survived ? 'Survived' : 'Did Not Survive';
+    verdict.style.color = survived ? '#2ecc71' : '#e74c3c';
+    document.getElementById('t-pct').textContent = pct + '%';
+    var bar = document.getElementById('t-bar');
+    bar.style.background = survived ? 'linear-gradient(90deg,#27ae60,#2ecc71)' : 'linear-gradient(90deg,#c0392b,#e74c3c)';
+    bar.style.width = '0';
+    setTimeout(function() { bar.style.width = pct + '%'; }, 30);
+    document.getElementById('t-factors').innerHTML = factors.map(function(f) {
+      var c = colors[f.cls];
+      return '<div style="display:flex;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.04);gap:10px;">'
+        + '<span style="font-size:0.78rem;color:#c0b8ac;flex:1;">' + f.name + '</span>'
+        + '<span style="font-family:monospace;font-size:0.6rem;letter-spacing:0.06em;padding:2px 8px;border-radius:2px;text-transform:uppercase;flex-shrink:0;background:' + c.bg + ';color:' + c.color + ';">' + f.label + '</span>'
+        + '</div>';
+    }).join('');
+    document.getElementById('t-algo').textContent = 'Logistic Regression · z = ' + z.toFixed(3) + ' · P(survived) = σ(z) = ' + prob.toFixed(4);
+  }
+</script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 
 <script>
   // ── Replace with your Render URL once deployed ──
@@ -560,8 +834,9 @@
   }
 
   function renderPolyChart(data) {
-    document.getElementById('poly-badge-text').textContent = `Degree ${data.degree}`;
-    document.getElementById('poly-badge').style.display = 'block';
+    const badge = document.getElementById('poly-badge');
+    badge.textContent = `Degree ${data.degree}`;
+    badge.style.display = 'inline-block';
 
     const scatterPts = data.scatter_x.map((x, i) => ({
       x: +x.toFixed(3), y: +data.scatter_y[i].toFixed(3)
@@ -578,17 +853,17 @@
       data: {
         datasets: [
           {
-            label: 'Data',
+            label: 'Data points',
             data: scatterPts,
-            backgroundColor: 'rgba(70,130,180,0.65)',
+            backgroundColor: 'rgba(61,61,196,0.45)',
             pointRadius: 3,
             order: 2
           },
           {
-            label: `Poly Degree ${data.degree}`,
+            label: `Degree ${data.degree} fit`,
             data: curvePts,
             type: 'line',
-            borderColor: 'crimson',
+            borderColor: '#e74c3c',
             borderWidth: 2.5,
             pointRadius: 0,
             fill: false,
@@ -600,22 +875,29 @@
       options: {
         responsive: true,
         plugins: {
-          legend: { labels: { font: { family: 'Calibri', size: 12 } } },
+          legend: {
+            labels: {
+              color: '#444',
+              font: { family: 'DM Sans, sans-serif', size: 12 }
+            }
+          },
           title: {
             display: true,
             text: `Polynomial Regression — Degree ${data.degree}`,
-            font: { family: 'Calibri', size: 13, weight: 'bold' },
-            color: '#3b1a00'
+            color: '#333',
+            font: { family: 'DM Sans, sans-serif', size: 13, weight: '500' }
           }
         },
         scales: {
           x: {
-            title: { display: true, text: 'X', font: { family: 'Calibri', size: 12 } },
-            grid: { color: 'rgba(0,0,0,0.07)' }
+            title: { display: true, text: 'X', color: '#666', font: { family: 'DM Sans, sans-serif', size: 12 } },
+            ticks: { color: '#888' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
           },
           y: {
-            title: { display: true, text: 'y', font: { family: 'Calibri', size: 12 } },
-            grid: { color: 'rgba(0,0,0,0.07)' }
+            title: { display: true, text: 'y', color: '#666', font: { family: 'DM Sans, sans-serif', size: 12 } },
+            ticks: { color: '#888' },
+            grid: { color: 'rgba(0,0,0,0.06)' }
           }
         }
       }
@@ -793,7 +1075,7 @@
           <polygon points="23,22 23,30 30,26" fill="#FF0000"/>
         </svg>
       </a>
-      <a href="mailto:tejas.p29@gmail.com" class="social-link" title="Email">
+      <a href="/cdn-cgi/l/email-protection#2551404f44560b55171c654248444c490b464a48" class="social-link" title="Email">
         <svg width="52" height="52" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
           <circle cx="26" cy="26" r="26" fill="#3D3DC4"/>
           <rect x="13" y="18" width="26" height="18" rx="3" fill="none" stroke="white" stroke-width="2"/>
@@ -816,6 +1098,4 @@
     <button onclick="document.getElementById('phone-modal').style.display='none'" style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.4rem; cursor:pointer; color:#888;">&times;</button>
     <svg width="44" height="44" viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg" style="margin-bottom:12px;">
       <circle cx="26" cy="26" r="26" fill="#2E7D32"/>
-      <path d="M20 16h4l2 5-2.5 1.5a11 11 0 0 0 6 6L31 26l5 2v4c0 1.1-.9 2-2 2A18 18 0 0 1 16 18c0-1.1.9-2 2-2z" fill="white"/>
-    </svg>
-    <p style="font-size:1rem; color:#333; line-height:1.6; margin:0;">Please refer to my resume above for phone number<br>OR<br><a href="https://www.linkedin.com/in/tejasppatil" target="_blank" rel="noopener" style="color:#3D3DC4; font-weight:600;">Message on LinkedIn<
+      <path d="M20 16h4l2 5-2.5 1.5a11 11 0 0 0 6 6L31 26l5 2v4c0 1.1-.9 2-2 2A18
